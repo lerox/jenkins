@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    jenkins:
+        build: ./jenkins
+        container_name: jenkins
+        volumes:
+            - ./jenkins/volume/:/var/jenkins_home
+        ports:
+            - "8080:8080"
+            - "50000:50000"
+        networks:
+            - external-network
+
+networks:
+    external-network:
+        external: true
